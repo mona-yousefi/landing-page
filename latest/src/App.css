@@ -235,7 +235,7 @@
   inset-block-start: 223px;
   inset-inline-start: 8.1%;
   width: 95%;
-  height: 352px;
+  height: 390px;
   overflow: hidden;
   box-shadow: 0 1px 2px rgba(20, 32, 36, 0.12);
 }
@@ -260,7 +260,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .slider-arrow {
@@ -374,6 +374,7 @@
   inset-inline-start: 35%;
   width: 65%;
   height: 145px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background: #11abc0;
@@ -467,6 +468,7 @@
   .service-strip {
     inset-inline-start: 28%;
     width: 72%;
+    margin-top: 0;
   }
 
   .hero-frame {

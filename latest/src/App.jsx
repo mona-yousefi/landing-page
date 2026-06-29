@@ -42,7 +42,7 @@ const services = [
 
 const heroSlides = [
   { src: quarryImg, alt: labels.stoneMineView },
-  { src: "/marble.jpg", alt: labels.stoneMineView },
+  { src: "/second-pic.jpg", alt: labels.stoneMineView },
 ];
 
 function App() {
