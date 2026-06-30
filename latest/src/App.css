@@ -22,33 +22,10 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background:
-    linear-gradient(
-      115deg,
-      transparent 0 21%,
-      rgba(185, 192, 196, 0.26) 21.2%,
-      transparent 21.6%
-    ),
-    linear-gradient(
-      64deg,
-      transparent 0 8%,
-      rgba(206, 211, 214, 0.36) 8.2%,
-      transparent 8.6%
-    ),
-    linear-gradient(
-      104deg,
-      transparent 0 15%,
-      rgba(214, 218, 220, 0.33) 15.2%,
-      transparent 15.55%
-    ),
-    linear-gradient(
-      76deg,
-      transparent 0 40%,
-      rgba(207, 213, 216, 0.34) 40.15%,
-      transparent 40.5%
-    ),
-    #ffffff;
-  color: var(--ink);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.644), rgba(255, 255, 255, 0.644)),
+    url(/marble.jpg);
+  background-size: cover;
 }
 
 .landing::before,
@@ -56,28 +33,9 @@
   content: "";
   position: absolute;
   inset-block: 0;
-  width: 34vw;
+  width: 100vw;
   pointer-events: none;
-  opacity: 0.42;
-  background:
-    linear-gradient(
-      112deg,
-      transparent 0 28%,
-      #d7dadd 28.2%,
-      transparent 28.55%
-    ),
-    linear-gradient(
-      76deg,
-      transparent 0 45%,
-      #d4d8da 45.1%,
-      transparent 45.45%
-    ),
-    linear-gradient(
-      118deg,
-      transparent 0 62%,
-      #e0e3e5 62.15%,
-      transparent 62.5%
-    );
+  opacity: 0.85;
 }
 
 .landing::before {
