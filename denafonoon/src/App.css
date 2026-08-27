@@ -21,7 +21,7 @@
   --ink: #1e1b20;
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.644), rgba(255, 255, 255, 0.644)),
     url(/marble.jpg);
@@ -506,4 +506,361 @@
 }
 .lables-brand {
   margin-top: 10px;
+}
+
+.about-section {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1280px);
+  height: clamp(620px, 55.78vw, 714px);
+  min-height: 620px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ffffff;
+  color: #17171a;
+  font-family: "IranYekan", Tahoma, Arial, sans-serif;
+}
+
+.about-marble {
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: 0;
+  width: 50%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)),
+    url("/marble.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.products-section {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1280px);
+  height: clamp(620px, 55.78vw, 714px);
+  min-height: 620px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ffffff;
+  color: #17171a;
+  font-family: "IranYekan", Tahoma, Arial, sans-serif;
+}
+
+.products-marble {
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: 0;
+  width: 50%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.38)),
+    url("/marble.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.products-heading {
+  position: absolute;
+  inset-block-start: 15.25%;
+  right: -18px;
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+  height: 37px;
+  direction: ltr;
+}
+
+.products-heading h2,
+.products-heading span {
+  display: block;
+  margin: 0;
+  border-radius: 2px;
+  background: #0cabc0;
+  box-shadow: 0 1px 2px rgba(0, 105, 120, 0.18);
+}
+
+.products-heading h2 {
+  width: 257px;
+  padding: 5px 20px 4px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.products-heading span {
+  width: 29px;
+}
+
+.products-grid {
+  position: absolute;
+  inset-block-start: 22.95%;
+  left: 7.35%;
+  width: 85.3%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4.15%;
+}
+
+.product-card {
+  min-width: 0;
+  height: 388px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 3px 9px rgba(28, 35, 37, 0.25);
+}
+
+.product-image-crop {
+  position: relative;
+  width: 100%;
+  height: 154px;
+  overflow: hidden;
+  background: #d2d3d3;
+}
+
+.product-image-crop img {
+  position: absolute;
+  inset-block-start: -106.5%;
+  left: var(--image-left);
+  display: block;
+  width: 535.57%;
+  max-width: none;
+  height: auto;
+}
+
+.product-card-body {
+  display: flex;
+  height: 234px;
+  padding: 14px 17px 39px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.product-card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.product-card p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: justify;
+  text-align-last: right;
+}
+
+.product-card a {
+  display: flex;
+  width: 136px;
+  height: 37px;
+  margin: auto auto 0;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  border-radius: 3px;
+  background: #0babc0;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.product-card a:hover,
+.product-card a:focus-visible {
+  background: #078fa2;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.product-arrow {
+  color: rgba(255, 255, 255, 0.82);
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .products-section {
+    height: auto;
+    min-height: 0;
+    padding: 120px 7% 72px;
+  }
+
+  .products-marble {
+    width: 55%;
+  }
+
+  .products-heading {
+    inset-block-start: 54px;
+  }
+
+  .products-grid {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px;
+  }
+
+  .product-image-crop {
+    height: auto;
+    aspect-ratio: 239 / 154;
+  }
+}
+
+@media (max-width: 560px) {
+  .products-section {
+    padding-inline: 24px;
+  }
+
+  .products-marble {
+    width: 100%;
+  }
+
+  .products-heading {
+    right: -20px;
+  }
+
+  .products-heading h2 {
+    width: 240px;
+    font-size: 16px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    width: min(100%, 310px);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .product-card-body {
+    min-height: 234px;
+  }
+}
+
+.about-photo-stack {
+  position: absolute;
+  inset-block-start: 23%;
+  left: 14.5%;
+  width: 24.7%;
+  aspect-ratio: 316 / 394;
+}
+
+.about-photo-backdrop {
+  position: absolute;
+  inset-block-start: -3.6%;
+  left: -4%;
+  width: 76%;
+  height: 98.5%;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(29, 38, 40, 0.24);
+}
+
+.about-photo-crop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #d8d8d6;
+}
+
+.about-photo-crop img {
+  position: absolute;
+  inset-block-start: -45.18%;
+  left: -58.86%;
+  display: block;
+  width: 405.07%;
+  max-width: none;
+  height: auto;
+}
+
+.about-copy {
+  position: absolute;
+  inset-block-start: 25%;
+  right: 9.5%;
+  width: 45.3%;
+  min-height: 55.5%;
+  padding-right: 40px;
+}
+
+.about-accent {
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  width: 14px;
+  border-radius: 3px;
+  background: #08a9bf;
+  box-shadow: 0 1px 2px rgba(0, 111, 126, 0.25);
+}
+
+.about-text h2 {
+  margin: 23px 0 43px;
+  font-size: clamp(17px, 1.55vw, 20px);
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.about-text p {
+  margin: 0 0 24px;
+  font-size: clamp(16px, 1.55vw, 20px);
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: justify;
+  text-align-last: right;
+}
+
+@media (max-width: 760px) {
+  .about-section {
+    height: auto;
+    min-height: 0;
+    padding: 56px 24px 64px;
+  }
+
+  .about-marble {
+    width: 100%;
+    height: 47%;
+  }
+
+  .about-photo-stack,
+  .about-copy {
+    position: relative;
+    inset: auto;
+  }
+
+  .about-photo-stack {
+    width: min(76vw, 316px);
+    margin: 0 auto 66px;
+  }
+
+  .about-copy {
+    width: 100%;
+    min-height: 0;
+    padding-right: 28px;
+  }
+
+  .about-accent {
+    width: 9px;
+  }
+
+  .about-text h2 {
+    margin: 0 0 30px;
+    font-size: 18px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.75;
+  }
 }
