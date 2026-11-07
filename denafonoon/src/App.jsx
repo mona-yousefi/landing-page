@@ -2,6 +2,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import quarryImg from "./assets/quarry.jpg";
 import "./App.css";
+import CustomersCarousel from "./CustomersCarousel";
+import ContactSection from "./ContactSection";
+import LocationSection from "./LocationSection";
 
 const labels = {
   brand: "دنافنون",
@@ -141,8 +144,6 @@ function App() {
       </div>
       {/* second section */}
       <section className="about-section" id="about" dir="rtl">
-        <div className="about-marble" aria-hidden="true" />
-
         <div className="about-photo-stack">
           <div className="about-photo-backdrop" aria-hidden="true" />
           <div className="about-photo-crop">
@@ -164,8 +165,6 @@ function App() {
       </section>
       {/* third section */}
       <section className="products-section" id="products" dir="rtl">
-        <div className="products-marble" aria-hidden="true" />
-
         <div className="products-heading">
           <h2>محصولات مربوط به برش سنگ</h2>
           <span aria-hidden="true" />
@@ -196,6 +195,9 @@ function App() {
           ))}
         </div>
       </section>
+      <CustomersCarousel />
+      <ContactSection />
+      <LocationSection />
     </main>
   );
 }
