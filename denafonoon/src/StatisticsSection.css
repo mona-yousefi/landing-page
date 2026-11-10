@@ -1,0 +1,59 @@
+.statistics-section {
+  color: #231f20;
+  font-family: "IRSina", "IranYekan", Tahoma, Arial, sans-serif;
+  font-weight: 700;
+}
+.statistics-chart {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 32px 24px 52px;
+}
+.statistics-chart h2 {
+  margin: 0 0 42px;
+  text-align: center;
+  font-size: clamp(25px, 2.65vw, 34px);
+  line-height: 1.6;
+}
+.statistics-progress-list { width: 51%; margin: 0 auto; }
+.statistics-progress-item + .statistics-progress-item { margin-top: 40px; }
+.statistics-progress-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 10px;
+  direction: ltr;
+  font-size: clamp(14px, 1.4vw, 18px);
+}
+.statistics-percent {
+  flex-shrink: 0;
+  font-family: "Elham", "IranYekan", Tahoma, Arial, sans-serif;
+  font-size: clamp(19px, 1.85vw, 24px);
+}
+.statistics-progress-track { height: 5px; background: #d1d3d4; direction: ltr; }
+.statistics-progress-fill { height: 100%; background: #25bad4; }
+.statistics-band { background: rgba(0, 172, 201, 0.86); color: #fff; }
+.statistics-totals {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(64%, 820px);
+  margin: 0 auto;
+  padding: 56px 0 68px;
+  gap: 24px;
+  direction: ltr;
+  text-align: center;
+}
+.statistics-total { display: flex; flex-direction: column; gap: 14px; direction: rtl; }
+.statistics-total dt { font-size: clamp(16px, 1.75vw, 23px); line-height: 1.6; }
+.statistics-total dd { order: -1; margin: 0; font-size: clamp(36px, 3.8vw, 49px); line-height: 1.3; }
+@media (max-width: 900px) {
+  .statistics-progress-list { width: 76%; }
+  .statistics-totals { width: 88%; }
+}
+@media (max-width: 560px) {
+  .statistics-chart { padding: 28px 24px 36px; }
+  .statistics-chart h2 { margin-bottom: 30px; }
+  .statistics-progress-list { width: 100%; }
+  .statistics-progress-item + .statistics-progress-item { margin-top: 28px; }
+  .statistics-totals { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 36px 0; gap: 32px 16px; }
+}

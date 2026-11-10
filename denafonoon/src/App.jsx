@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import quarryImg from "./assets/quarry.jpg";
 import "./App.css";
 import CustomersCarousel from "./CustomersCarousel";
+import StatisticsSection from "./StatisticsSection";
 import ContactSection from "./ContactSection";
 import LocationSection from "./LocationSection";
 
@@ -195,6 +196,7 @@ function App() {
           ))}
         </div>
       </section>
+      <StatisticsSection />
       <CustomersCarousel />
       <ContactSection />
       <LocationSection />

@@ -1,4 +1,20 @@
 @font-face {
+  font-family: "IRSina";
+  src: url("/fonts/IRSina.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Elham";
+  src: url("/fonts/Far_Elham.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "IranYekan";
   src: url("/fonts/IRANSansXFaNum-bold.woff2") format("woff2");
   font-display: swap;
