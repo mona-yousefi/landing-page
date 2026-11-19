@@ -22,6 +22,13 @@ export default function LocationSection() {
         <p className="location-description">
           دنافنون در شهرک صنعتی محمودآباد اصفهان واقع شده است. این مجموعه با حدود ۷۰۰۰ مترمربع مساحت، بیش از ۳۰۰۰ مترمربع سالن سرپوشیده و تیمی متشکل از حدود ۴۰ نفر مهندس، تکنسین و نیروی ماهر، به طراحی و ساخت تجهیزات صنعتی و معدنی می‌پردازد.
         </p>
+        <div className="location-details" dir="rtl">
+          <h2>اطلاعات تماس دنافنون</h2>
+          <p>تلفن تماس: <a href="tel:+983133803936"><bdi>۰۳۱-۳۳۸۰۳۹۳۶</bdi></a></p>
+          <p>فکس: <bdi>۰۳۱-۳۳۸۰۳۹۳۷</bdi></p>
+          <p>کدپستی: <bdi>۸۱۶۱۱۹۹۸۷۵</bdi></p>
+          <p>آدرس: اصفهان، کیلومتر ۸ جاده تهران، خیابان ۳۲، شرکت دنافنون</p>
+        </div>
       </div>
       <div className="location-divider" aria-hidden="true" />
     </section>

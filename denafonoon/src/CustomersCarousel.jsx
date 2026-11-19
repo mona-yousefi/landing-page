@@ -22,7 +22,7 @@ export default function CustomersCarousel() {
   const move = (offset) => setActiveSlide((current) => (current + offset + slides.length) % slides.length);
 
   return (
-    <section className="customers-section" dir="rtl" aria-labelledby="customers-heading" aria-roledescription="carousel">
+    <section id="customers" className="customers-section" dir="rtl" aria-labelledby="customers-heading" aria-roledescription="carousel">
       <h2 id="customers-heading">برندها و مشتریان طرف قرارداد</h2>
       <p className="customers-intro">
         از شروع فعالیت دنافنون، سعی کرده ایم بهترین محصولات را با بهترین قیمت، ضمانت کالا برای شما فراهم کنیم، از اینکه

@@ -1,0 +1,242 @@
+/* Layout and palette measured from the supplied 2480 x 1383 artwork.
+   Sections one and two use Iran Yekan X; later sections retain their current fonts. */
+@font-face {
+  font-family: "IranYekanX";
+  src: url("/fonts/IRANYekanX-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IranYekanX";
+  src: url("/fonts/IRANYekanX-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+:root { font-family: "IranYekan", Tahoma, sans-serif; }
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 24px; }
+.landing { --teal: #0097b2; --teal-dark: #008aa3; --accent: #0cb0cc; color: #231f20; }
+.brand-panel { left: max(calc((100% - 1280px) / 2 + 120px), 9.4%); top: 40px; width: 200px; min-width: 0; }
+.composition { min-height: 714px; font-family: "IranYekanX", Tahoma, sans-serif; }
+.top-band, .middle-band, .service-strip { left: 27.8%; width: 65.2%; }
+.top-band { height: 42px; }
+.middle-band { top: 118px; height: 160px; }
+.main-nav { top: 78px; right: 7.8%; gap: 20px; direction: rtl; font-family: "IranYekanX", Tahoma, sans-serif; font-weight: 700; }
+.main-nav .nav-pending { position: relative; padding: 0 0 12px; border: 0; background: none; font: inherit; line-height: inherit; color: #252329; white-space: nowrap; cursor: pointer; }
+.main-nav :is(a, button) { padding: 0 0 12px; }
+.main-nav :is(a, button)::after { content: ""; position: absolute; inset: auto 0 0; width: 100%; height: 3px; background: var(--teal); transform: scaleX(0); transform-origin: right; transition: transform 180ms ease; }
+.main-nav :is(a, button)[aria-current], .main-nav button[aria-pressed="true"], .main-nav :is(a, button):hover { color: var(--teal); }
+.main-nav :is(a, button)[aria-current]::after, .main-nav button[aria-pressed="true"]::after, .main-nav :is(a, button):focus-visible::after, .main-nav :is(a, button):hover::after { transform: scaleX(1); }
+.main-nav :is(a, button):focus-visible { outline: 2px solid var(--teal); outline-offset: 5px; }
+.hero-frame { top: 223px; left: 8.1%; width: 87.5%; height: 352px; }
+.hero-frame::after { background: none; }
+.hero-frame img { object-fit: cover; }
+.service-strip { top: 575px; margin: 0; height: 139px; padding: 16px 16px 0; background: var(--teal); }
+.service-card { background: var(--accent); }
+.service-card span { font-family: "IranYekanX", Tahoma, sans-serif; font-size: 14px; font-weight: 700; }
+.about-section { height: 714px; font-family: "IranYekanX", Tahoma, sans-serif; color: #231f20; }
+.about-photo-stack { top: 22.2%; left: 14.7%; width: 25.7%; aspect-ratio: 637 / 766; }
+.about-photo-backdrop { top: -5.5%; left: -4.7%; width: 73%; height: 111%; box-shadow: 0 5px 12px #0004; }
+.about-photo-crop img { position: static; width: 100%; height: 100%; object-fit: cover; }
+.about-copy { top: 21.8%; right: 9.5%; width: 45.5%; padding-right: 38px; min-height: 56%; }
+.about-accent { background: var(--accent); width: 16px; border-radius: 0; box-shadow: 3px 3px 9px #0003; }
+.about-text h2 { margin: 20px 0 60px; font-size: 20px; font-weight: 700; line-height: 1.6; }
+.about-text p { margin: 0 0 10px; font-size: 20px; font-weight: 400; line-height: 1.6; text-align: justify; text-align-last: right; }
+.about-text p:last-child { margin-bottom: 12px; }
+.products-section { height: auto; min-height: 714px; padding: 163px 10.2% 70px; overflow: visible; }
+.products-heading { top: 94px; height: 51px; }
+.products-heading h2, .products-heading span { background: var(--accent); }
+.products-heading h2 { width: auto; padding: 8px 24px; font-size: 24px; line-height: 35px; }
+.products-grid { position: static; width: 100%; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 5.5%; }
+.product-card { height: auto; transition: transform 260ms ease, box-shadow 260ms ease; }
+.product-image-crop { height: auto; aspect-ratio: 573 / 371; }
+.product-image-crop img { position: static; width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.product-card-body { height: auto; min-height: 267px; padding: 18px 20px 28px; }
+.product-card h3 { text-align: right; font-size: 23px; margin-bottom: 10px; }
+.product-card p { font-size: 17px; line-height: 1.65; }
+.product-card a { flex-shrink: 0; margin-top: 18px; background: var(--accent); }
+.product-card:focus-within { transform: translateY(-8px); box-shadow: 0 16px 30px #007b8f30, 0 0 0 1px var(--accent); }
+.product-card a:focus-visible { outline: 3px solid var(--teal-dark); outline-offset: 4px; }
+@media (hover: hover) {
+ .product-card:hover { transform: translateY(-8px); box-shadow: 0 16px 30px #007b8f30, 0 0 0 1px var(--accent); }
+ .product-card:hover .product-image-crop img { transform: scale(1.045); }
+}
+/* PSDs 5 and 6 share the same product-card typography and dimensions. */
+:is(#industrial-products, #products) {
+  font-family: "IranYekanX", Tahoma, sans-serif;
+  color: #231f20;
+  padding-left: 10.24%;
+  padding-right: 11.69%;
+}
+:is(#industrial-products, #products) .products-grid { gap: 5.55%; }
+:is(#industrial-products, #products) .products-heading h2 {
+  padding-inline: 12px;
+  font-size: 24px;
+  font-weight: 400;
+}
+:is(#industrial-products, #products) .product-card { box-shadow: 0 4px 10px #0003; }
+:is(#industrial-products, #products) .product-card-body { min-height: 287px; padding: 16px 20px 28px; }
+:is(#industrial-products, #products) .product-card h3 { font-size: 22px; font-weight: 700; line-height: 1.5; margin-bottom: 10px; }
+:is(#industrial-products, #products) .product-card p { font-size: 19px; font-weight: 400; line-height: 1.5; }
+:is(#industrial-products, #products) .product-card a {
+  width: 167px;
+  height: 44px;
+  max-width: 100%;
+  margin-top: 16px;
+  justify-content: center;
+  gap: 16px;
+  font-size: 16px;
+}
+:is(#industrial-products, #products) .product-arrow { font-size: 32px; line-height: 1; }
+:is(#industrial-products, #products) .product-card:focus-within { box-shadow: 0 16px 30px #007b8f30, 0 0 0 1px var(--accent); }
+@media (hover: hover) {
+  :is(#industrial-products, #products) .product-card:hover { box-shadow: 0 16px 30px #007b8f30, 0 0 0 1px var(--accent); }
+}
+@media (min-width: 1281px) {
+  :is(#industrial-products, #products) { padding-left: 131px; padding-right: 150px; }
+}
+@media (max-width: 900px) {
+  :is(#industrial-products, #products) { padding-inline: 6%; }
+  :is(#industrial-products, #products) .products-grid { gap: 24px; }
+}
+@media (max-width: 560px) {
+  :is(#industrial-products, #products) { padding-inline: 24px; }
+  :is(#industrial-products, #products) .products-heading h2 { font-size: 17px; padding-inline: 10px; }
+  :is(#industrial-products, #products) .product-card p { font-size: 18px; line-height: 1.7; }
+}
+.statistics-section { width: 100%; max-width: none; margin: 0; font-family: "IranYekanX", Tahoma, sans-serif; font-weight: 400; }
+.statistics-overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); direction: ltr; }
+.statistics-photo { display: block; width: 100%; height: 100%; min-height: 0; aspect-ratio: 1240 / 920; object-fit: cover; }
+.statistics-chart { width: 100%; max-width: none; min-width: 0; direction: rtl; padding: clamp(32px, 3.5vw, 72px) clamp(24px, 3.8vw, 78px) clamp(36px, 4vw, 82px); }
+.statistics-chart h2 { text-align: right; font-size: clamp(22px, 2vw, 40px); font-weight: 700; margin-bottom: clamp(32px, 3vw, 62px); }
+.statistics-progress-list { width: 100%; }
+.statistics-progress-item + .statistics-progress-item { margin-top: clamp(28px, 3.2vw, 66px); }
+.statistics-progress-caption { font-size: clamp(14px, 1.15vw, 23px); font-weight: 400; }
+.statistics-percent { font-family: inherit; font-size: clamp(17px, 1.3vw, 26px); }
+.statistics-progress-fill { background: #28b9cd; }
+.statistics-band { background: var(--accent); }
+.statistics-totals { width: 100%; padding: clamp(40px, 4.5vw, 92px) 3% clamp(48px, 5.5vw, 112px); }
+.statistics-total dt { font-size: clamp(16px, 1.45vw, 29px); font-weight: 400; }
+.statistics-total dd { font-size: clamp(30px, 3vw, 60px); letter-spacing: 5px; font-weight: 400; }
+.customers-section { font-family: "IranYekanX", Tahoma, sans-serif; padding-top: 76px; }
+.customers-section h2 { font-family: inherit; font-size: 32px; font-weight: 700; margin-bottom: 56px; }
+.customers-intro { font-size: 16px; font-weight: 400; line-height: 2.2; margin-bottom: 12px; }
+.customer-card { border-radius: 26px; padding: 14px 18px 28px; min-height: 302px; box-shadow: 0 2px 10px #0003; }
+.customer-logo { height: 136px; margin-bottom: 12px; }
+.customer-logo img { max-width: 240px; }
+.customer-card h3 { color: var(--teal); font-weight: 700; margin-bottom: 8px; }
+.customer-card h3, .customer-card p { font-size: 16px; line-height: 1.9; }
+.customer-card p { font-weight: 400; }
+.customers-tagline { font-family: inherit; font-size: 28px; font-weight: 400; padding: 13px 40px; border-radius: 27px; }
+@media (max-width: 900px) {
+  .customers-section { padding-top: 48px; }
+  .customers-section h2 { font-size: 26px; margin-bottom: 30px; }
+  .customers-tagline { font-size: 23px; }
+}
+@media (max-width: 560px) {
+  .customers-section { padding-top: 36px; }
+  .customers-section h2 { font-size: 23px; margin-bottom: 24px; }
+  .customers-intro { font-size: 15px; line-height: 2; }
+  .customers-tagline { font-size: 20px; padding: 14px 20px; }
+}
+.contact-section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  min-height: 714px;
+  padding: 240px 0 55px;
+  font-family: "IranYekanX", Tahoma, sans-serif;
+  color: #fff;
+  background: linear-gradient(rgb(0 151 178 / 28%), rgb(0 151 178 / 28%)), url('/contact-photo.jpg') center / cover no-repeat;
+}
+.contact-panels { width: 89%; max-width: 1160px; gap: 24px; }
+.contact-panel { min-height: 0; padding: 35px 26px 24px; background: rgb(0 151 178 / 66%); }
+.contact-panel h2 { font-size: 24px; font-weight: 700; margin: 20px 0 32px; }
+.contact-panel p { font-family: "CustomerNazanin", Tahoma, sans-serif; font-size: 25px; font-weight: 400; line-height: 1.9; }
+.contact-icon { width: 56px; height: 56px; }
+.contact-icon-map { width: 90px; }
+.location-section { font-family: "IranYekanX", Tahoma, sans-serif; color: #231f20; padding: 76px min(13.1vw, 168px) 86px; word-spacing: normal; letter-spacing: -0.025em; }
+.location-layout { grid-template-columns: minmax(0, 54%) minmax(0, 1fr); gap: 26px 24px; align-items: start; }
+.location-description { grid-column: 1 / -1; grid-row: 1; background: var(--teal); color: #fff; padding: 14px 20px; font-size: 21.5px; font-weight: 400; line-height: 43.6px; text-align: center; text-align-last: center; }
+.location-map { border-radius: 26px; box-shadow: 0 2px 10px #0003; }
+.location-map-link { font-size: 14px; }
+.location-details { text-align: right; line-height: 43.6px; font-size: 21.5px; font-weight: 400; }
+.location-details h2 { font-size: 30.1px; font-weight: 400; margin: 0 0 43.6px; line-height: 43.6px; }
+.location-details bdi { font-size: 25.8px; }
+.location-details p { margin: 0; }
+.location-details a { color: inherit; }
+.location-details a:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+.location-divider { background: var(--teal); height: 10px; margin-top: 30px; }
+@media (max-width: 900px) {
+  .location-section { padding: 48px 7%; }
+  .location-description, .location-details { font-size: 17px; line-height: 2; }
+  .location-details bdi { font-size: 20.4px; }
+  .location-details h2 { font-size: 22px; margin-bottom: 24px; }
+}
+@media (max-width: 600px) {
+  .location-section { padding: 32px 24px 40px; }
+  .location-layout { grid-template-columns: 1fr; }
+  .location-description { padding: 16px; }
+  .location-details h2 { margin-bottom: 18px; }
+  .location-divider { height: 7px; }
+}
+@media (min-width: 1281px) { .products-section { padding-inline: 130px; } }
+@media (max-width: 900px) {
+ .main-nav { left: 28%; gap: 12px; flex-wrap: wrap; font-size: 12px; }
+ .brand-panel { left: 5%; width: 150px; }
+ .about-section { height: auto; min-height: 620px; }
+ .about-copy { width: 49%; right: 5%; }
+ .about-text h2 { font-size: 17px; margin-bottom: 24px; }
+ .about-text p { font-size: 16px; }
+ .products-section { padding: 140px 6% 55px; }
+ .products-grid { gap: 24px; grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .statistics-chart { padding: 24px; }
+ .statistics-chart h2 { font-size: 21px; }
+ .statistics-progress-caption { font-size: 14px; }
+ .contact-section { min-height: 0; padding: 100px 0 40px; }
+ .contact-panel { padding: 26px 16px; }
+ .contact-panel h2 { font-size: 20px; }
+ .contact-panel p { font-size: 22px; }
+}
+@media (max-width: 760px) {
+ .about-section { min-height: 0; padding: 50px 24px; }
+ .about-photo-stack { inset: auto; width: min(70%,316px); margin-bottom: 50px; }
+ .about-copy { inset: auto; width: 100%; }
+ .about-text h2 { margin-top: 0; font-size: 18px; line-height: 1.7; }
+ .about-text p { font-size: 17px; line-height: 1.9; }
+ .about-accent { width: 9px; }
+ .statistics-overview { grid-template-columns: 1fr; }
+ .statistics-photo { height: auto; max-height: 430px; }
+ .statistics-chart { padding: 32px 24px 44px; }
+ .statistics-progress-caption { font-size: 14px; }
+ .contact-section { padding: 40px 24px; }
+ .contact-panels { width: 100%; }
+ .contact-panel { aspect-ratio: auto; }
+}
+@media (max-width: 560px) {
+ .brand-panel { top: 20px; width: 116px; }
+ .top-band { height: 26px; left: 38%; width: 62%; }
+ .main-nav { top: 44px; left: auto; right: 16px; width: 59%; gap: 10px 12px; flex-wrap: wrap; font-size: 12px; }
+ .main-nav .nav-pending { padding-bottom: 7px; }
+ .main-nav :is(a, button) { padding-bottom: 7px; }
+ .middle-band { top: 148px; left: 28%; width: 72%; height: 75px; }
+ .hero-frame { top: 205px; left: 4%; width: 92%; height: 220px; }
+ .service-strip { top: 425px; left: 0; width: 100%; height: 260px; grid-template-columns: 1fr 1fr; padding: 12px; }
+ .composition { min-height: 685px; }
+ .social-rail { left: 6px; top: 275px; }
+ .products-section { min-height: 0; padding: 120px 24px 48px; }
+ .products-heading { top: 40px; height: 42px; }
+ .products-heading h2 { font-size: 17px; line-height: 26px; padding: 8px 14px; }
+ .products-grid { grid-template-columns: 1fr; gap: 30px; }
+ .product-card { width: min(100%,340px); }
+ .statistics-totals { padding: 36px 24px; }
+ .location-layout { grid-template-columns: 1fr; }
+ .location-description { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ .product-card, .product-image-crop img, .main-nav :is(a, button)::after, .hero-track { transition: none; }
+ .product-card:hover, .product-card:focus-within, .product-card:hover .product-image-crop img { transform: none; }
+}

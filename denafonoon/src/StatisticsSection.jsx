@@ -17,7 +17,9 @@ const persianNumber = new Intl.NumberFormat("fa-IR", { useGrouping: false });
 
 export default function StatisticsSection() {
   return (
-    <section className="statistics-section" aria-labelledby="statistics-heading" dir="rtl">
+    <section id="statistics" className="statistics-section" aria-labelledby="statistics-heading" dir="rtl">
+      <div className="statistics-overview">
+      <img className="statistics-photo" src="/design/factory.jpg" alt="نمای ساختمان شرکت دنافنون" />
       <div className="statistics-chart">
         <h2 id="statistics-heading">نمودار فروش و آمار</h2>
         <div className="statistics-progress-list">
@@ -33,6 +35,7 @@ export default function StatisticsSection() {
             </div>
           ))}
         </div>
+      </div>
       </div>
       <div className="statistics-band">
         <dl className="statistics-totals">
