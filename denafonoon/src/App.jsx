@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 const quarryImg = "/design/hero.jpg";
 import "./App.css";
 import CustomersCarousel from "./CustomersCarousel";
@@ -59,6 +59,17 @@ const productDescription =
   "مولتی وایر جدیدترین نسل دستگاه‌های برش سنگ است که با بهره‌گیری از سیم الماسه، کوپ سنگ را با دقت بالا به اسلب تبدیل می‌کند.";
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState(null);
+  const searchPage = (event) => {
+    event.preventDefault();
+    const normalize = (value) => value.replace(/ي/g, "ی").replace(/ك/g, "ک").replace(/\s+/g, " ").trim().toLocaleLowerCase();
+    const query = normalize(searchQuery);
+    if (!query) { setSearchResults(null); return; }
+    setSearchResults(Array.from(document.querySelectorAll(".landing section[id]"))
+      .filter((section) => normalize(section.textContent).includes(query))
+      .map((section) => ({ id: section.id, title: section.querySelector("h2")?.textContent || section.getAttribute("aria-label") || section.id })));
+  };
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSection, setActiveSection] = useState("home");
   useEffect(() => {
@@ -98,7 +109,9 @@ function App() {
       </aside>
 
       <div className="composition">
-        <div className="top-band" />
+        <div className="top-band">
+          <span className="language-option" lang="en" aria-disabled="true" title="English version coming soon">ENGLISH</span>
+        </div>
 
         <nav className="main-nav" aria-label={labels.main}>
           {navigation.map(({ id, label, pending }) => pending ? (
@@ -111,7 +124,20 @@ function App() {
           ))}
         </nav>
 
-        <div className="middle-band" />
+        <div className="middle-band">
+          <form className="hero-search" role="search" onSubmit={searchPage}>
+            <button type="submit" aria-label="Search"><Search size={22} strokeWidth={1.4} aria-hidden="true" /></button>
+            <input type="search" aria-label="Search this site" dir="rtl" value={searchQuery}
+              onChange={(event) => { setSearchQuery(event.target.value); setSearchResults(null); }}
+              onKeyDown={(event) => { if (event.key === "Escape") setSearchResults(null); }} />
+            {searchResults !== null && (
+              <div className="hero-search-results" dir="rtl">
+                <p role="status">{searchResults.length ? "نتایج جستجو" : "نتیجه‌ای یافت نشد"}</p>
+                {searchResults.map((result) => <a key={result.id} href={`#${result.id}`} onClick={() => setSearchResults(null)}>{result.title}</a>)}
+              </div>
+            )}
+          </form>
+        </div>
 
         <section className="hero-frame" id="home" aria-label={labels.mineView}>
           <div
