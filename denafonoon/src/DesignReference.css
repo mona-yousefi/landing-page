@@ -34,7 +34,7 @@ section[id] { scroll-margin-top: 24px; }
 .hero-frame::after { background: none; }
 .hero-frame img { object-fit: cover; }
 .service-strip { top: 575px; margin: 0; height: 139px; padding: 16px 16px 0; }
-.service-card span { font-family: "IranYekanX", Tahoma, sans-serif; font-size: 14px; font-weight: 700; }
+.service-card span { font-family: "IranYekanX", Tahoma, sans-serif; font-size: 14px; }
 .about-section { height: 714px; font-family: "IranYekanX", Tahoma, sans-serif; color: #231f20; }
 .about-photo-stack { top: 22.2%; left: 14.7%; width: 25.7%; aspect-ratio: 637 / 766; }
 .about-photo-backdrop { top: -5.5%; left: -4.7%; width: 73%; height: 111%; box-shadow: 0 5px 12px #0004; }
@@ -69,7 +69,7 @@ section[id] { scroll-margin-top: 24px; }
   padding-left: 10.24%;
   padding-right: 11.69%;
 }
-:is(#industrial-products, #products) .products-grid { gap: 5.55%; }
+:is(#industrial-products, #products) .products-grid { gap: 48px 5.55%; }
 :is(#industrial-products, #products) .products-heading h2 {
   padding-inline: 12px;
   font-size: 24px;
@@ -98,7 +98,7 @@ section[id] { scroll-margin-top: 24px; }
 }
 @media (max-width: 900px) {
   :is(#industrial-products, #products) { padding-inline: 6%; }
-  :is(#industrial-products, #products) .products-grid { gap: 24px; }
+  :is(#industrial-products, #products) .products-grid { column-gap: 24px; }
 }
 @media (max-width: 560px) {
   :is(#industrial-products, #products) { padding-inline: 24px; }

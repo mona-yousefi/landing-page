@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 const quarryImg = "/design/hero.jpg";
 import "./App.css";
 import CustomersCarousel from "./CustomersCarousel";
+import NewsSection from "./NewsSection";
 import StatisticsSection from "./StatisticsSection";
 import ContactSection from "./ContactSection";
 import LocationSection from "./LocationSection";
@@ -38,7 +39,7 @@ const navigation = [
   { id: "products", label: "محصولات" },
   { id: "catalog", label: "کاتالوگ", pending: true },
   { id: "gallery", label: "گالری تصاویر", pending: true },
-  { id: "blog", label: "وبلاگ", pending: true },
+  { id: "blog", label: "وبلاگ" },
   { id: "contact", label: "اطلاعات تماس" },
 ];
 
@@ -53,6 +54,42 @@ const products = [
   { title: "سیم برش", image: "/design/wire.jpg" },
   { title: "مولتی وایر", image: "/design/multiwire.jpg" },
   { title: "فیلتر پرس", image: "/design/filter.jpg" },
+];
+
+const industrialAccessories = [
+  {
+    title: "پمپ فیلتر پرس",
+    image: "/design/filter-press-pump.jpg",
+    description: "پمپ فیلتر پرس دوغاب را به محفظه‌های دستگاه می‌رساند تا ذرات جامد از مایع جدا شوند.",
+  },
+  {
+    title: "پودر فلوکولانت",
+    image: "/design/flocculant-powder.jpg",
+    description: "پودر فلوکولانت ذرات معلق ریز را به هم پیوند می‌دهد تا ته‌نشینی و جداسازی آن‌ها آسان‌تر شود.",
+  },
+  {
+    title: "پارچه فیلتر پرس",
+    image: "/design/filter-press-cloth.jpg",
+    description: "پارچه فیلتر پرس ذرات جامد را در محفظه نگه می‌دارد و اجازه می‌دهد مایع از آن عبور کند.",
+  },
+];
+
+const stoneCuttingMachines = [
+  {
+    title: "برش سیمی الماسه",
+    image: "/design/filter-press-pump.jpg",
+    description: "در این روش، سیم الماسه از میان سنگ عبور می‌کند و کوپ را در امتداد مسیر برش جدا می‌کند.",
+  },
+  {
+    title: "برش سیمی دروازه‌ای",
+    image: "/design/flocculant-powder.jpg",
+    description: "دستگاه برش سیمی دروازه‌ای، سیم الماسه را در یک قاب هدایت می‌کند تا برش کوپ سنگ کنترل‌شده انجام شود.",
+  },
+  {
+    title: "دستگاه برش سیمی کوچک",
+    image: "/design/filter-press-cloth.jpg",
+    description: "این دستگاه با سیم الماسه، قطعات کوچک‌تر سنگ را برش می‌دهد و برای فضاهای کاری محدود مناسب است.",
+  },
 ];
 
 const productDescription =
@@ -223,8 +260,16 @@ function App() {
       </section>
       {/* third section */}
       {[
-        { id: "industrial-products", title: "محصولات مربوط به تصفیه صنعتی" },
-        { id: "products", title: "محصولات مربوط به برش سنگ" },
+        {
+          id: "industrial-products",
+          title: "محصولات مربوط به تصفیه صنعتی",
+          products: [...products, ...industrialAccessories],
+        },
+        {
+          id: "products",
+          title: "محصولات مربوط به برش سنگ",
+          products: [...products, ...stoneCuttingMachines],
+        },
       ].map((category) => (
       <section className="products-section" id={category.id} key={category.id} dir="rtl">
         <div className="products-heading">
@@ -234,7 +279,7 @@ function App() {
         </div>
 
         <div className="products-grid">
-          {products.map((product, index) => (
+          {category.products.map((product, index) => (
             <article className="product-card" key={`${product.title}-${index}`}>
               <div className="product-image-crop">
                 <img
@@ -244,7 +289,7 @@ function App() {
               </div>
               <div className="product-card-body">
                 <h3>{product.title}</h3>
-                <p>{productDescription}</p>
+                <p>{product.description ?? productDescription}</p>
                 <a href="#contact">
                   <span>سازه</span>
                   <span className="product-arrow" aria-hidden="true">
@@ -259,6 +304,7 @@ function App() {
       ))}
       <StatisticsSection />
       <CustomersCarousel />
+      <NewsSection />
       <ContactSection />
       <LocationSection />
     </main>
