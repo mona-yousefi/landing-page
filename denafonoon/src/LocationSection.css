@@ -31,14 +31,14 @@
   padding: 7px 12px;
   border-radius: 6px;
   background: #fff;
-  color: #007e92;
+  color: var(--teal-dark);
   font-size: 12px;
   direction: rtl;
   text-decoration: none;
   box-shadow: 0 1px 5px #0002;
 }
 .location-map-link:hover { text-decoration: underline; }
-.location-map-link:focus-visible { outline: 2px solid #009bb2; outline-offset: -3px; }
+.location-map-link:focus-visible { outline: 2px solid var(--teal-dark); outline-offset: -3px; }
 .location-description {
   margin: 0;
   direction: rtl;
@@ -48,7 +48,7 @@
   text-align: justify;
   text-align-last: right;
 }
-.location-divider { height: 10px; margin-top: 30px; background: #009bb2; }
+.location-divider { height: 10px; margin-top: 30px; background: var(--teal-dark); }
 
 @media (min-width: 1280px) {
   .location-section { padding-inline: 189px; }

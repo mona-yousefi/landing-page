@@ -31,8 +31,8 @@
   font-size: clamp(19px, 1.85vw, 24px);
 }
 .statistics-progress-track { height: 5px; background: #d1d3d4; direction: ltr; }
-.statistics-progress-fill { height: 100%; background: #25bad4; }
-.statistics-band { background: rgba(0, 172, 201, 0.86); color: #fff; }
+.statistics-progress-fill { height: 100%; background: var(--teal); }
+.statistics-band { background: var(--teal); color: var(--teal-ink); }
 .statistics-totals {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

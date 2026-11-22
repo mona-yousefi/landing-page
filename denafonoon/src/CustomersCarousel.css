@@ -67,7 +67,7 @@
   margin: 0 auto;
   padding: 13px 40px;
   border-radius: 27px;
-  background: #0097b2;
+  background: var(--teal-dark);
   color: #fff;
   font-size: clamp(20px, 2.2vw, 28px);
   font-weight: 700;
@@ -85,16 +85,16 @@
   padding: 0;
   border: 0;
   border-radius: 6px;
-  color: #07899a;
+  color: var(--teal-dark);
   background: rgba(255, 255, 255, 0.85);
   cursor: pointer;
 }
 .customers-next { left: -8px; }
 .customers-previous { right: -8px; }
 .customers-dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-.customers-dots button { width: 10px; height: 10px; padding: 0; border: 1px solid #07899a; border-radius: 50%; background: #fff; cursor: pointer; }
-.customers-dots button[aria-pressed="true"] { background: #07899a; }
-.customers-section :focus-visible { outline: 2px solid #07899a; outline-offset: 4px; }
+.customers-dots button { width: 10px; height: 10px; padding: 0; border: 1px solid var(--teal-dark); border-radius: 50%; background: #fff; cursor: pointer; }
+.customers-dots button[aria-pressed="true"] { background: var(--teal-dark); }
+.customers-section :focus-visible { outline: 2px solid var(--teal-dark); outline-offset: 4px; }
 .customers-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 
 @media (max-width: 900px) {
