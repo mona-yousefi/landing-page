@@ -233,6 +233,16 @@
   transition: transform 520ms ease;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .hero-image-zoom {
+    animation: hero-image-zoom 5.5s ease-in-out;
+  }
+}
+
+@keyframes hero-image-zoom {
+  50% { transform: scale(1.04); }
+}
+
 .hero-frame img {
   flex: 0 0 100%;
   display: block;
@@ -431,34 +441,6 @@
     justify-content: center;
     flex-wrap: wrap;
   }
-
-  .composition {
-    min-height: 760px;
-  }
-
-  .brand-panel {
-    inset-inline-start: 24px;
-    width: 150px;
-  }
-
-  .top-band,
-  .middle-band,
-  .service-strip {
-    inset-inline-start: 28%;
-    width: 72%;
-    margin-top: 0;
-  }
-
-  .hero-frame {
-    inset-inline-start: 4%;
-    width: 99.1%;
-    height: 352px;
-  }
-
-  .service-strip {
-    grid-template-columns: repeat(2, 1fr);
-    height: 184px;
-  }
 }
 
 @media (max-width: 560px) {
@@ -467,61 +449,12 @@
     padding: 0 10px;
   }
 
-  .composition {
-    min-height: 752px;
-  }
-
-  .brand-panel {
-    inset-block-start: 22px;
-    width: 122px;
-    min-width: 0;
-  }
-
-  .top-band {
-    height: 32px;
-  }
-
-  .middle-band {
-    inset-block-start: 112px;
-    height: 132px;
-  }
-
-  .main-nav {
-    inset-block-start: 66px;
-    inset-inline-end: 22px;
-    gap: 20px;
-    font-size: 13px;
-  }
-
-  .hero-frame {
-    inset-block-start: 216px;
-    height: 220px;
-  }
-
-  .slider-arrow {
-    width: 30px;
-    height: 40px;
-  }
-
   .slider-arrow-prev {
     inset-inline-start: 12px;
   }
 
   .slider-arrow-next {
     inset-inline-end: 12px;
-  }
-
-  .social-rail {
-    inset-block-start: 312px;
-    inset-inline-start: 14px;
-  }
-
-  .service-strip {
-    inset-block-start: 436px;
-    inset-inline-start: 0;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-    height: 292px;
   }
 }
 .lables-brand {

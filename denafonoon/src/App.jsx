@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Menu, Search, X } from "lucide-react";
 const quarryImg = "/design/hero.jpg";
 import "./App.css";
 import CustomersCarousel from "./CustomersCarousel";
@@ -7,6 +7,7 @@ import NewsSection from "./NewsSection";
 import StatisticsSection from "./StatisticsSection";
 import ContactSection from "./ContactSection";
 import LocationSection from "./LocationSection";
+import useCarouselAutoplay from "./useCarouselAutoplay";
 
 const labels = {
   brand: "دنافنون",
@@ -51,9 +52,15 @@ const heroSlides = [
 const aboutParagraph = "شرکت دنافنون در سال ۱۳۶۸ توسط افرادی با سابقه‌های فنی و مهندسی و مدیریت‌های اجرایی در زمینه ساخت و تولید، تأسیس گردید و با هدف کم کردن وابستگی صنایع معدنی به بازارهای خارجی و استفاده از تولیدات با کیفیت و پیشرفته ساخت داخل ادامه به فعالیت داد.";
 const aboutHistory = "شرکت دنافنون با پشت سر گذاشتن فراز و نشیب‌های فراوان موفق گردیده است تا کنون متجاوز از تعداد ۲۰۰۰ دستگاه در زمینه بهره‌برداری معادن سنگ ساختمانی و دیگر صنایع وابسته، تولید و به بازارهای داخل و خارج از کشور تحویل نماید.";
 const products = [
-  { title: "سیم برش", image: "/design/wire.jpg" },
+  { title: "دریل حفاری در سنگ", image: "/design/wire.jpg" },
   { title: "مولتی وایر", image: "/design/multiwire.jpg" },
-  { title: "فیلتر پرس", image: "/design/filter.jpg" },
+  { title: "دستگاه برش سیمی دوار", image: "/design/filter.jpg" },
+];
+
+const industrialProducts = [
+  { title: "تانک تصفیه آب", image: "/design/wire.jpg" },
+  { title: "مونو پمپ", image: "/design/multiwire.jpg" },
+  { title: "فیلترپرس", image: "/design/filter.jpg" },
 ];
 
 const industrialAccessories = [
@@ -108,6 +115,9 @@ function App() {
       .map((section) => ({ id: section.id, title: section.querySelector("h2")?.textContent || section.getAttribute("aria-label") || section.id })));
   };
   const [activeSlide, setActiveSlide] = useState(0);
+  const heroCarousel = useRef(null);
+  const menuButton = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   useEffect(() => {
     const updateSection = () => {
@@ -137,27 +147,37 @@ function App() {
   const showNextSlide = () => {
     setActiveSlide((currentSlide) => (currentSlide + 1) % heroSlides.length);
   };
+  useCarouselAutoplay(heroCarousel, activeSlide, showNextSlide);
 
   return (
     <main className="landing" dir="ltr">
       {/* first section */}
-      <aside className="brand-panel" aria-label={labels.brand}>
-        <img src="/design/brand.jpg" alt={labels.brand} />
-      </aside>
-
-      <div className="composition">
+      <div className="composition" onKeyDown={(event) => {
+        if (event.key === "Escape" && menuOpen && !event.defaultPrevented && menuButton.current.getClientRects().length) {
+          setMenuOpen(false);
+          menuButton.current.focus();
+        }
+      }}>
+        <aside className="brand-panel" aria-label={labels.brand}>
+          <img src="/design/brand.jpg" alt={labels.brand} />
+        </aside>
         <div className="top-band">
-          <span className="language-option" lang="en" aria-disabled="true" title="English version coming soon">ENGLISH</span>
+          <a className="language-option" lang="en" href={`${import.meta.env.BASE_URL}en/`} hrefLang="en">ENGLISH</a>
+          <button className="menu-toggle" type="button" ref={menuButton}
+            aria-label={menuOpen ? "بستن منو" : "باز کردن منو"} aria-expanded={menuOpen}
+            aria-controls="main-navigation" onClick={() => setMenuOpen((open) => !open)}>
+            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </button>
         </div>
 
-        <nav className="main-nav" aria-label={labels.main}>
+        <nav className="main-nav" id="main-navigation" data-open={menuOpen} aria-label={labels.main}>
           {navigation.map(({ id, label, pending }) => pending ? (
             <button className="nav-pending" key={id} type="button"
               aria-pressed={activeSection === id} onClick={() => setActiveSection(id)}
               title="این صفحه هنوز آماده نشده است">{label}</button>
           ) : (
             <a key={id} href={`#${id}`} aria-current={activeSection === id ? "location" : undefined}
-              onClick={() => setActiveSection(id)}>{label}</a>
+              onClick={() => { setActiveSection(id); setMenuOpen(false); }}>{label}</a>
           ))}
         </nav>
 
@@ -176,13 +196,13 @@ function App() {
           </form>
         </div>
 
-        <section className="hero-frame" id="home" aria-label={labels.mineView}>
+        <section className="hero-frame" id="home" ref={heroCarousel} aria-label={labels.mineView}>
           <div
             className="hero-track"
             style={{ transform: `translateX(-${activeSlide * 100}%)` }}
           >
-            {heroSlides.map((slide) => (
-              <img src={slide.src} alt={slide.alt} key={slide.src} />
+            {heroSlides.map((slide, index) => (
+              <img className={index === 0 && activeSlide === 0 ? "hero-image-zoom" : undefined} src={slide.src} alt={slide.alt} key={slide.src} />
             ))}
           </div>
           <button
@@ -263,7 +283,7 @@ function App() {
         {
           id: "industrial-products",
           title: "محصولات مربوط به تصفیه صنعتی",
-          products: [...products, ...industrialAccessories],
+          products: [...industrialProducts, ...industrialAccessories],
         },
         {
           id: "products",

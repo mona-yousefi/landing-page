@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./CustomersCarousel.css";
+import useCarouselAutoplay from "./useCarouselAutoplay";
 
 const slides = [
   [
@@ -18,11 +19,13 @@ const slides = [
 
 export default function CustomersCarousel() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const carousel = useRef(null);
   const touchStart = useRef(null);
   const move = (offset) => setActiveSlide((current) => (current + offset + slides.length) % slides.length);
+  useCarouselAutoplay(carousel, activeSlide, () => move(1));
 
   return (
-    <section id="customers" className="customers-section" dir="rtl" aria-labelledby="customers-heading" aria-roledescription="carousel">
+    <section id="customers" className="customers-section" dir="rtl" ref={carousel} aria-labelledby="customers-heading" aria-roledescription="carousel">
       <h2 id="customers-heading">برندها و مشتریان طرف قرارداد</h2>
       <p className="customers-intro">
         از شروع فعالیت دنافنون، سعی کرده ایم بهترین محصولات را با بهترین قیمت، ضمانت کالا برای شما فراهم کنیم، از اینکه

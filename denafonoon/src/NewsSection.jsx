@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./NewsSection.css";
+import useCarouselAutoplay from "./useCarouselAutoplay";
 
 const article = {
   title: "تصفیه پساب و فاضلاب پتروشیمی / روش‌ها، مراحل، چالش‌ها و تجهیزات",
@@ -47,15 +48,7 @@ export default function NewsSection() {
     setFirst((current) => (current + direction + projectPhotos.length) % projectPhotos.length);
   }, []);
 
-  useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const timer = window.setInterval(() => {
-      if (!document.hidden && !reducedMotion.matches && !carousel.current.matches(":hover, :focus-within")) {
-        move(1);
-      }
-    }, 5500);
-    return () => window.clearInterval(timer);
-  }, [first, move]);
+  useCarouselAutoplay(carousel, first, () => move(1));
 
   useLayoutEffect(() => {
     const layout = previousLayout.current;
