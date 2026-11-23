@@ -1,6 +1,6 @@
 import { useEffect, useEffectEvent } from "react";
 
-export default function useCarouselAutoplay(carousel, activeSlide, advance) {
+export default function useCarouselAutoplay(carousel, activeSlide, advance, intervalMs = 5500) {
   const advanceSlide = useEffectEvent(advance);
 
   useEffect(() => {
@@ -10,8 +10,8 @@ export default function useCarouselAutoplay(carousel, activeSlide, advance) {
       if (element && !document.hidden && !reducedMotion.matches && !element.matches(":hover, :focus-within")) {
         advanceSlide();
       }
-    }, 5500);
+    }, intervalMs);
 
     return () => window.clearInterval(timer);
-  }, [carousel, activeSlide]);
+  }, [carousel, activeSlide, intervalMs]);
 }

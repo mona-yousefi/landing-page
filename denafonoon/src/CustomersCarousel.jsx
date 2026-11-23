@@ -22,7 +22,7 @@ export default function CustomersCarousel() {
   const carousel = useRef(null);
   const touchStart = useRef(null);
   const move = (offset) => setActiveSlide((current) => (current + offset + slides.length) % slides.length);
-  useCarouselAutoplay(carousel, activeSlide, () => move(1));
+  useCarouselAutoplay(carousel, activeSlide, () => move(1), 4500);
 
   return (
     <section id="customers" className="customers-section" dir="rtl" ref={carousel} aria-labelledby="customers-heading" aria-roledescription="carousel">
