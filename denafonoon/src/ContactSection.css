@@ -20,7 +20,7 @@
   min-height: 29vw;
   padding: 3vw 1.25vw;
   border: 1px solid rgba(255, 255, 255, 0.75);
-  background: color-mix(in srgb, var(--teal-dark) 90%, transparent);
+  background: color-mix(in srgb, var(--teal) 90%, transparent);
   text-align: center;
 }
 .contact-icon { display: block; width: 4.4vw; height: 4.4vw; margin: 0 auto; object-fit: contain; filter: brightness(0) invert(1); }

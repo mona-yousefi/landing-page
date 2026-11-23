@@ -32,7 +32,7 @@
 }
 .statistics-progress-track { height: 5px; background: #d1d3d4; direction: ltr; }
 .statistics-progress-fill { height: 100%; background: var(--teal); }
-.statistics-band { background: var(--teal); color: var(--teal-ink); }
+.statistics-band { background: var(--teal); color: #fff; }
 .statistics-totals {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

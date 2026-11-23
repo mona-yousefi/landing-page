@@ -6,13 +6,12 @@
 }
 
 .news-section h2 {
-  --news-accent: #08a9c4;
   position: relative;
   display: inline-block;
   margin: 0 0 32px;
   padding: 8px clamp(12px, 2vw, 24px);
   border-radius: 2px;
-  background: var(--news-accent);
+  background: var(--teal);
   color: #fff;
   font-size: clamp(18px, 2vw, 26px);
   line-height: 1.35;
@@ -23,7 +22,7 @@
   position: absolute;
   inset-block: 0;
   width: clamp(22px, 4vw, 50px);
-  background: linear-gradient(to var(--bars-direction), var(--news-accent) 59%, transparent 59% 68%, var(--news-accent) 68%);
+  background: linear-gradient(to var(--bars-direction), var(--teal) 59%, transparent 59% 68%, var(--teal) 68%);
   border-radius: 2px;
   content: "";
 }
@@ -131,18 +130,18 @@
 
 .news-details summary:hover,
 .news-details[open] summary {
-  color: var(--teal-dark);
+  color: var(--teal);
   text-decoration: underline;
 }
 
 .news-details summary:focus-visible {
-  outline: 2px solid var(--teal-dark);
+  outline: 2px solid var(--teal);
   outline-offset: 2px;
 }
 
 .news-carousel:focus-visible,
 .news-carousel button:focus-visible {
-  outline: 2px solid var(--teal-dark);
+  outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
 

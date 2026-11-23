@@ -31,11 +31,9 @@
 }
 
 .landing {
-  --teal: #0097b2;
-  --teal-dark: #006477;
-  --teal-light: #0cafcc;
+  --teal: #008690;
   --teal-ink: #10272c;
-  --line: color-mix(in srgb, var(--teal-dark) 35%, transparent);
+  --line: color-mix(in srgb, var(--teal) 35%, transparent);
   --ink: #1e1b20;
   position: relative;
   min-height: 100vh;
@@ -112,7 +110,7 @@
   gap: 7px;
   min-height: 36px;
   padding: 0 12px;
-  border: 1px solid color-mix(in srgb, var(--teal-dark) 24%, transparent);
+  border: 1px solid color-mix(in srgb, var(--teal) 24%, transparent);
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.9);
   color: var(--teal-ink);
@@ -129,7 +127,7 @@
 .upload-button:hover,
 .upload-button:focus-within {
   background: #ffffff;
-  border-color: color-mix(in srgb, var(--teal-dark) 55%, transparent);
+  border-color: color-mix(in srgb, var(--teal) 55%, transparent);
   transform: translateY(-2px);
 }
 
@@ -162,6 +160,7 @@
   inset-inline-start: 35%;
   width: 65%;
   background: var(--teal);
+  box-shadow: 0 5px 14px rgb(16 39 44 / 24%);
 }
 
 .top-band {
@@ -216,7 +215,7 @@
   width: 95%;
   height: 390px;
   overflow: hidden;
-  box-shadow: 0 1px 2px rgba(20, 32, 36, 0.12);
+  box-shadow: 0 8px 20px rgb(16 39 44 / 28%);
 }
 
 .hero-frame::after {
@@ -357,6 +356,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background: var(--teal);
+  box-shadow: 0 5px 14px rgb(16 39 44 / 24%);
   border-block-start: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -369,10 +369,10 @@
   justify-content: center;
   gap: 12px;
   color: #fff;
-  background: var(--teal-light);
+  background: var(--teal);
   text-decoration: none;
   border-inline-start: 2px solid var(--teal);
-  box-shadow: inset 0 1px 5px rgb(16 39 44 / 18%);
+  box-shadow: inset 0 3px 7px rgb(16 39 44 / 34%), inset 0 -1px 0 rgb(255 255 255 / 12%);
   transition:
     background 180ms ease,
     box-shadow 180ms ease,
@@ -384,9 +384,7 @@
 .service-card:focus-visible {
   z-index: 1;
   background: var(--teal);
-  box-shadow:
-    inset 0 1px 5px rgb(16 39 44 / 12%),
-    0 12px 22px rgb(16 39 44 / 25%);
+  box-shadow: inset 0 3px 7px rgb(16 39 44 / 38%), inset 0 -1px 0 rgb(255 255 255 / 12%), 0 6px 12px rgb(16 39 44 / 24%);
   transform: translateY(-8px);
 }
 
@@ -673,7 +671,7 @@
 .product-card a:hover,
 .product-card a:focus-visible {
   color: #fff;
-  background: var(--teal-dark);
+  background: var(--teal);
   outline: none;
   transform: translateY(-2px);
 }
