@@ -240,6 +240,27 @@ section[id] { scroll-margin-top: 24px; }
 .hero-search-results a:hover, .hero-search-results a:focus-visible { background: #f0f0f0; }
 .menu-toggle { display: none; }
 
+@media (min-width: 901px) {
+  .composition {
+    --hero-top: 174px;
+    --hero-height: clamp(220px, calc(100dvh - var(--hero-top) - 16px), 480px);
+    --hero-bottom: calc(var(--hero-top) + var(--hero-height));
+    --service-height: 139px;
+    min-height: calc(var(--hero-bottom) + var(--service-height));
+  }
+
+  .brand-panel { top: 12px; width: min(190px, calc(18.4% - 16px)); }
+  .middle-band { height: calc(var(--hero-top) - 84px); }
+  .hero-search { margin-top: 26px; }
+  .hero-frame {
+    top: var(--hero-top);
+    height: var(--hero-height);
+  }
+  .hero-frame .hero-image-zoom { animation: none; }
+  .social-rail { bottom: calc(var(--service-height) + 16px); }
+  .service-strip { top: var(--hero-bottom); height: var(--service-height); }
+}
+
 @media (max-width: 900px) {
   .composition {
     --hero-gutter: clamp(12px, 4vw, 32px);
