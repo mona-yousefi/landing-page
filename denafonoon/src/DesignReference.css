@@ -256,7 +256,6 @@ section[id] { scroll-margin-top: 24px; }
     top: var(--hero-top);
     height: var(--hero-height);
   }
-  .hero-frame .hero-image-zoom { animation: none; }
   .social-rail { bottom: calc(var(--service-height) + 16px); }
   .service-strip { top: var(--hero-bottom); height: var(--service-height); }
 }

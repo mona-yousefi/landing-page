@@ -202,7 +202,7 @@ function App() {
             style={{ transform: `translateX(-${activeSlide * 100}%)` }}
           >
             {heroSlides.map((slide, index) => (
-              <img className={index === 0 && activeSlide === 0 ? "hero-image-zoom" : undefined} src={slide.src} alt={slide.alt} key={slide.src} />
+              <img className={index === activeSlide ? "hero-image-zoom" : undefined} src={slide.src} alt={slide.alt} key={slide.src} />
             ))}
           </div>
           <button
